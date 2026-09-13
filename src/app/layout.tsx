@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import NavBar from "@/components/navbar";
+import { ThemeProvider } from "next-themes";
 
 const    roboto= Roboto({
   variable: "--font-roboto",
@@ -20,7 +22,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${roboto.variable}  h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full relative flex flex-col">
+        <ThemeProvider attribute="class" enableSystem>
+        <NavBar/>
+        {children}
+        </ThemeProvider>
+        </body>
     </html>
   );
 }
