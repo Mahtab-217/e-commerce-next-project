@@ -2,6 +2,7 @@
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { auth } from "../../../db/firebase.config";
+import { cookies } from "next/headers";
 
 export async function register(prev: unknown, FormData:FormData){
 
@@ -15,8 +16,11 @@ try{
         await updateProfile(user, {
             displayName: username,
         });
-        console.log(user);
-        console.log(user.email);
+       const cookieInfo= await  cookies();
+       cookieInfo.set("token", user.uid,{
+        maxAge: 60*60*24*8,
+       });
+
         return {
             state: true,
             message: "User created successfully",
