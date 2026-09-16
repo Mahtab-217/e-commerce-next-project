@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
 import { Moon, Sun, SunMoon } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import LanguageChanger from './languageChanger';
 
 
 function NavBar() {
@@ -30,6 +31,7 @@ function NavBar() {
     <div className='w-full py-4 border-b backdrop-blur-md fixed top-0 left-0 px-2 flex justify-between items-center '>
         <div>LOGO</div>
         <div className='flex gap-4 items-center'>
+        <LanguageChanger/>
             <DropdownMenu>
                 <DropdownMenuTrigger>{theme == "light"? (<Sun/>): theme == "dark"? (<Moon/>): (<SunMoon/>)}</DropdownMenuTrigger>
                 <DropdownMenuSeparator/>

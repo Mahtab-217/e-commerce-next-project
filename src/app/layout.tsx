@@ -23,10 +23,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${roboto.variable}  h-full antialiased`}
     >
       <body className="min-h-full relative flex flex-col">
-        <ThemeProvider attribute="class" enableSystem>
-        <NavBar/>
+        {/* <ThemeProvider attribute="class" enableSystem> */}
+        {/* <NavBar/> */}
         {children}
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
         </body>
     </html>
   );
